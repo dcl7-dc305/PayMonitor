@@ -12,6 +12,7 @@ namespace PayMonitorUI
         SqlCommand cmd;
         string ConnStr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
 
+
         public frmLogin()
         {
             InitializeComponent();
@@ -21,35 +22,39 @@ namespace PayMonitorUI
         {
             if (txtUsername.Text == "" || txtPassword.Text == "")
             {
-                MessageBox.Show("Please fill up the form:");
+                MessageBox.Show("Please enter your login credentials.");
             }
             else
             {
                 SqlDataReader reader; // create reader object
                 conn = new SqlConnection(ConnStr); // assign the connection info
-                cmd = new SqlCommand("SELECT * FROM tbl_accounts WHERE username=@username AND password=@password", conn);
-
+                string qry = "SELECT * FROM tbl_accounts WHERE username=@username AND password=@password"; 
+                cmd = new SqlCommand(qry, conn); // Prep up Query to connection of db
+                
+                // Wire up from UI Form
                 cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
 
                 try
                 {
-                    conn.Open(); // open connection
-                    reader = cmd.ExecuteReader(); // execute command and assign the result into
-                    if (reader.HasRows) // check if there is any record in reader
+                    conn.Open(); // Open connection
+                    reader = cmd.ExecuteReader(); // execute query inputs
+                    if (reader.HasRows) // check if there's any data
                     {
                         MessageBox.Show("Login Success");
                     }
-                    else
+                    else // if there's none
                     {
                         MessageBox.Show("Login Failed");
                     }
-                    conn.Close();
+                    reader.Close();
+                    conn.Close(); // Close Connection
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                
             }
         }
     }
