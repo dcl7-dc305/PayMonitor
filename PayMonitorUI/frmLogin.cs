@@ -42,6 +42,14 @@ namespace PayMonitorUI
                     if (reader.HasRows) // check if there's any data
                     {
                         MessageBox.Show("Login Success");
+
+                        //Close Login Form after signing in.
+                        this.Hide();
+
+                        //Show Main Menu after Login Succes.
+                        frmMainMenu frm2 = new frmMainMenu();
+                        frm2.Show();
+
                     }
                     else // if there's none
                     {
@@ -56,6 +64,20 @@ namespace PayMonitorUI
                 }
                 
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(this, new EventArgs());
+            }
+
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PayMonitorUI.Properties {
+namespace PayMonitorLibrary.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -27,9 +27,9 @@ namespace PayMonitorUI.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=paymonitorbackup;Integrated Security=True")]
-        public string PayMonitorDB {
+        public string paymonitorbackupConnectionString {
             get {
-                return ((string)(this["PayMonitorDB"]));
+                return ((string)(this["paymonitorbackupConnectionString"]));
             }
         }
     }

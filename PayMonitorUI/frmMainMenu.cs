@@ -16,5 +16,17 @@ namespace PayMonitorUI
         {
             InitializeComponent();
         }
+
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            //Close Login Form after signing in.
+            this.Hide();
+
+            //Show Main Menu after Login Succes.
+            FrmAccounts frm3 = new FrmAccounts();
+            frm3.Show();
+
+        }
     }
 }
