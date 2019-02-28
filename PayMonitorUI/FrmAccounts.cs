@@ -15,9 +15,11 @@ namespace PayMonitorUI
 {
     public partial class FrmAccounts : Form
     {
-        public FrmAccounts()
+        public FrmAccounts(string roletype = "")
         {
             InitializeComponent();
+            lblRole.Text = roletype;  // initialize element
+            lblRole.Visible = false; // hide element
             Load_ViewRegisteredData();
         }
 
@@ -114,7 +116,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Main Menu after Login Succes.
-            frmMainMenu frm2 = new frmMainMenu();
+            frmMainMenu frm2 = new frmMainMenu(lblRole.Text);
             frm2.Show();
 
         }

@@ -12,9 +12,11 @@ namespace PayMonitorUI
 {
     public partial class frmMainMenu : Form
     {
-        public frmMainMenu()
+        public frmMainMenu(string roletype = "") // Set default type string to become optional value
         {
             InitializeComponent();
+
+            lblRole.Text = roletype; // initialize role
         }
 
 
@@ -23,8 +25,8 @@ namespace PayMonitorUI
             //Close Login Form after signing in.
             this.Hide();
 
-            //Show Main Menu after Login Succes.
-            FrmAccounts frm3 = new FrmAccounts();
+            //Show Main Menu after Login Success.
+            FrmAccounts frm3 = new FrmAccounts(lblRole.Text);
             frm3.Show();
 
         }

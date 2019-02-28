@@ -49,6 +49,7 @@
             this.lblManageAccount = new System.Windows.Forms.Label();
             this.lblAccountID = new System.Windows.Forms.Label();
             this.cmbAccountType = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,11 +257,20 @@
             this.cmbAccountType.Size = new System.Drawing.Size(139, 21);
             this.cmbAccountType.TabIndex = 42;
             // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(0, 378);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(0, 13);
+            this.lblRole.TabIndex = 43;
+            // 
             // FrmAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
+            this.Controls.Add(this.lblRole);
             this.Controls.Add(this.cmbAccountType);
             this.Controls.Add(this.grdViewAccounts);
             this.Controls.Add(this.btnDelete);
@@ -316,5 +326,6 @@
         private System.Windows.Forms.Label lblManageAccount;
         private System.Windows.Forms.Label lblAccountID;
         private System.Windows.Forms.ComboBox cmbAccountType;
+        private System.Windows.Forms.Label lblRole;
     }
 }

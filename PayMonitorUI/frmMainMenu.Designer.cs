@@ -34,6 +34,7 @@
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnSalesreport = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.lblRole = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAccount
@@ -91,11 +92,20 @@
             this.button5.Text = "Logout";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(81, 26);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(0, 13);
+            this.lblRole.TabIndex = 6;
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 312);
+            this.Controls.Add(this.lblRole);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnSalesreport);
             this.Controls.Add(this.btnInventory);
@@ -119,5 +129,6 @@
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnSalesreport;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label lblRole;
     }
 }
