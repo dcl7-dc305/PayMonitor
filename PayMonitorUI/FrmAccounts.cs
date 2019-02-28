@@ -45,7 +45,11 @@ namespace PayMonitorUI
                  cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
                  cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
 
-                 checkercmd = new SqlCommand("SELECT * FROM tbl_accounts WHERE username=@username", conn);
+                 // Fixed bug: Avoid redudant data.
+                 // 1. Check this code: Added "OR" statement and add "account_id" as reference.
+                 checkercmd = new SqlCommand("SELECT * FROM tbl_accounts WHERE account_id=@accountID OR username=@username", conn);
+                 
+                 checkercmd.Parameters.AddWithValue("@accountID", txtAccountID.Text); //2. added this parameter as well.
                  checkercmd.Parameters.AddWithValue("@username", txtUsername.Text);
 
                  try
@@ -56,16 +60,17 @@ namespace PayMonitorUI
                      datareader = checkercmd.ExecuteReader();
                      if (datareader.HasRows)
                      {
-                         MessageBox.Show("The " + txtUsername.Text + " username is taken.");
+                         MessageBox.Show("The " + txtUsername.Text + " username is taken. It has user id =" + txtAccountID.Text + ".");
                          datareader.Close();
                      }
                      else
+                     { // 3. make sure enclosed your if and else statment.
                          datareader.Close();
                          if (cmd.ExecuteNonQuery() == 1)
                          {
                              MessageBox.Show("User Successfully Added!");
                          }
-
+                     }
                      Load_ViewRegisteredData();
                      conn.Close();
             }
