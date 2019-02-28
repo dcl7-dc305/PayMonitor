@@ -21,9 +21,9 @@ namespace PayMonitorUI
             Load_ViewRegisteredData();
         }
 
-        private SqlCommand cmd;
-        private SqlConnection conn;
-        private SqlCommand checkercmd;
+        SqlCommand cmd;
+        SqlConnection conn;
+        SqlCommand checkercmd;
 
         string connstr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
 
@@ -34,9 +34,8 @@ namespace PayMonitorUI
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-                 conn = new SqlConnection(Properties.Settings.Default.PayMonitorDB);
+                 conn = new SqlConnection(connstr);
                  cmd = new SqlCommand("INSERT INTO tbl_accounts (account_id, role_name, username, password, firstname, lastname) VALUES (@accountID, @rolename, @username, @password, @firstname, @lastname)", conn);
-
 
                  cmd.Parameters.AddWithValue("@accountID", txtAccountID.Text);
                  cmd.Parameters.AddWithValue("@rolename", cmbAccountType.SelectedItem);
@@ -45,11 +44,8 @@ namespace PayMonitorUI
                  cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
                  cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
 
-                 // Fixed bug: Avoid redudant data.
-                 // 1. Check this code: Added "OR" statement and add "account_id" as reference.
                  checkercmd = new SqlCommand("SELECT * FROM tbl_accounts WHERE account_id=@accountID OR username=@username", conn);
-                 
-                 checkercmd.Parameters.AddWithValue("@accountID", txtAccountID.Text); //2. added this parameter as well.
+                 checkercmd.Parameters.AddWithValue("@accountID", txtAccountID.Text);
                  checkercmd.Parameters.AddWithValue("@username", txtUsername.Text);
 
                  try
@@ -64,7 +60,7 @@ namespace PayMonitorUI
                          datareader.Close();
                      }
                      else
-                     { // 3. make sure enclosed your if and else statment.
+                     {
                          datareader.Close();
                          if (cmd.ExecuteNonQuery() == 1)
                          {
