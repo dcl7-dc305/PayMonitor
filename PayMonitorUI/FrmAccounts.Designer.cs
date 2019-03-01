@@ -34,7 +34,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.lblLastname = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.lblManageAccount = new System.Windows.Forms.Label();
             this.lblAccountID = new System.Windows.Forms.Label();
             this.cmbAccountType = new System.Windows.Forms.ComboBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +56,11 @@
             // 
             this.grdViewAccounts.BackgroundColor = System.Drawing.Color.White;
             this.grdViewAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdViewAccounts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.grdViewAccounts.Location = new System.Drawing.Point(291, 54);
             this.grdViewAccounts.Name = "grdViewAccounts";
+            this.grdViewAccounts.ReadOnly = true;
+            this.grdViewAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdViewAccounts.Size = new System.Drawing.Size(521, 314);
             this.grdViewAccounts.TabIndex = 41;
             this.grdViewAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdViewAccounts_CellContentClick);
@@ -109,31 +112,22 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(630, 18);
+            this.btnBack.Location = new System.Drawing.Point(646, 18);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(182, 24);
+            this.btnBack.Size = new System.Drawing.Size(166, 24);
             this.btnBack.TabIndex = 36;
             this.btnBack.Text = "<< Back to Main Menu";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(528, 16);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(71, 26);
-            this.btnSearch.TabIndex = 35;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(291, 18);
+            this.txtSearch.Location = new System.Drawing.Point(349, 19);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(231, 24);
+            this.txtSearch.Size = new System.Drawing.Size(194, 24);
             this.txtSearch.TabIndex = 34;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // txtLastname
             // 
@@ -256,11 +250,22 @@
             this.cmbAccountType.Size = new System.Drawing.Size(139, 21);
             this.cmbAccountType.TabIndex = 42;
             // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Location = new System.Drawing.Point(289, 21);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(59, 18);
+            this.lblSearch.TabIndex = 43;
+            this.lblSearch.Text = "Search:";
+            // 
             // FrmAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.cmbAccountType);
             this.Controls.Add(this.grdViewAccounts);
             this.Controls.Add(this.btnDelete);
@@ -268,7 +273,6 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.lblLastname);
@@ -301,7 +305,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.Label lblLastname;
@@ -316,5 +319,6 @@
         private System.Windows.Forms.Label lblManageAccount;
         private System.Windows.Forms.Label lblAccountID;
         private System.Windows.Forms.ComboBox cmbAccountType;
+        private System.Windows.Forms.Label lblSearch;
     }
 }
