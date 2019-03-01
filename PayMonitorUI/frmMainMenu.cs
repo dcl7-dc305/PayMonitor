@@ -28,5 +28,12 @@ namespace PayMonitorUI
             frm3.Show();
 
         }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInventory frmInventory = new frmInventory();
+            frmInventory.Show();
+        }
     }
 }
