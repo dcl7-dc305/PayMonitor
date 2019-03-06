@@ -40,17 +40,16 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.searchTerm = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnAddProduct = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.grdViewAccounts = new System.Windows.Forms.DataGridView();
+            this.gridViewInventory = new System.Windows.Forms.DataGridView();
             this.tblproductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCategory = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,28 +140,19 @@
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(131, 217);
+            this.txtQuantity.Location = new System.Drawing.Point(132, 217);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(135, 24);
+            this.txtQuantity.Size = new System.Drawing.Size(134, 24);
             this.txtQuantity.TabIndex = 52;
             // 
             // searchTerm
             // 
             this.searchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTerm.Location = new System.Drawing.Point(291, 27);
+            this.searchTerm.Location = new System.Drawing.Point(293, 26);
             this.searchTerm.Name = "searchTerm";
-            this.searchTerm.Size = new System.Drawing.Size(162, 24);
+            this.searchTerm.Size = new System.Drawing.Size(172, 24);
             this.searchTerm.TabIndex = 53;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(601, 26);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(71, 26);
-            this.btnSearch.TabIndex = 54;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.searchTerm.TextChanged += new System.EventHandler(this.searchTerm_TextChanged);
             // 
             // btnBack
             // 
@@ -174,26 +164,16 @@
             this.btnBack.Text = "<< Back to Main Menu";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
-            // btnAddProduct
+            // submitButton
             // 
-            this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Location = new System.Drawing.Point(19, 303);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(102, 26);
-            this.btnAddProduct.TabIndex = 56;
-            this.btnAddProduct.Text = "Add Product";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(19, 347);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(102, 26);
-            this.btnUpdate.TabIndex = 57;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(19, 303);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(102, 26);
+            this.submitButton.TabIndex = 56;
+            this.submitButton.Text = "Add Product";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // btnClear
             // 
@@ -215,6 +195,7 @@
             this.btnDelete.TabIndex = 59;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cmbCategory
             // 
@@ -224,50 +205,53 @@
             this.cmbCategory.Size = new System.Drawing.Size(134, 21);
             this.cmbCategory.TabIndex = 61;
             // 
-            // grdViewAccounts
+            // gridViewInventory
             // 
-            this.grdViewAccounts.BackgroundColor = System.Drawing.Color.White;
-            this.grdViewAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdViewAccounts.Location = new System.Drawing.Point(291, 62);
-            this.grdViewAccounts.Name = "grdViewAccounts";
-            this.grdViewAccounts.Size = new System.Drawing.Size(521, 314);
-            this.grdViewAccounts.TabIndex = 60;
+            this.gridViewInventory.BackgroundColor = System.Drawing.Color.White;
+            this.gridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewInventory.Location = new System.Drawing.Point(291, 62);
+            this.gridViewInventory.Name = "gridViewInventory";
+            this.gridViewInventory.Size = new System.Drawing.Size(521, 314);
+            this.gridViewInventory.TabIndex = 60;
+            this.gridViewInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdViewAccounts_CellClick);
             // 
             // tblproductsBindingSource
             // 
             this.tblproductsBindingSource.DataMember = "tbl_products";
             // 
-            // _PayMonitorDB_0301DataSet
-            // 
-            // 
             // searchCategory
             // 
             this.searchCategory.FormattingEnabled = true;
-            this.searchCategory.Items.AddRange(new object[] {
-            "Staff",
-            "Admin"});
-            this.searchCategory.Location = new System.Drawing.Point(459, 29);
+            this.searchCategory.Location = new System.Drawing.Point(471, 26);
             this.searchCategory.Name = "searchCategory";
             this.searchCategory.Size = new System.Drawing.Size(136, 21);
             this.searchCategory.TabIndex = 62;
+            this.searchCategory.SelectedIndexChanged += new System.EventHandler(this.searchCategory_SelectedIndexChanged);
             // 
-            // tbl_productsTableAdapter
+            // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(613, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 26);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.searchCategory);
             this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.grdViewAccounts);
+            this.Controls.Add(this.gridViewInventory);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.searchTerm);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblQuantity);
@@ -282,7 +266,7 @@
             this.Name = "frmInventory";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,15 +286,14 @@
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox searchTerm;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.DataGridView grdViewAccounts;
+        private System.Windows.Forms.DataGridView gridViewInventory;
         private System.Windows.Forms.ComboBox searchCategory;
         private System.Windows.Forms.BindingSource tblproductsBindingSource;
+        private System.Windows.Forms.Button button1;
     }
 }
