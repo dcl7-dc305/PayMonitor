@@ -407,5 +407,26 @@ namespace PayMonitorUI
 
             QtyReset();
         }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            frmCheckout frm = new frmCheckout();
+            frm.Show();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(connstr);
+            conn.Open();
+            // search anything by account_id, username, firstname, last_name, role_name
+            string qry = $"SELECT * FROM tbl_products WHERE product_id LIKE '%{txtSearch.Text}%' OR product_name LIKE '%{txtSearch.Text}%' OR category LIKE '%{txtSearch.Text}%' OR qty LIKE '%{txtSearch.Text}%' OR price LIKE '%{txtSearch.Text}%'";
+            adapt = new SqlDataAdapter(qry, conn);
+            dt = new DataTable();
+            adapt.Fill(dt);
+            dgInventory.DataSource = dt;
+            conn.Close();
+        }
     }
 }
