@@ -27,6 +27,7 @@ namespace PayMonitorUI
             InitializeComponent();
             Load_Products();
             Load_Cart();
+            Load_TotalCharge();
             HideElements();
 
             //Disable Buttons
@@ -77,7 +78,8 @@ namespace PayMonitorUI
 
         public void Load_TotalCharge()
         {
-            SqlDataReader datareader;
+            SqlDataReader reader;
+            double totalCharge;
             DataTable dt = new DataTable();
             conn = new SqlConnection(connstr);
             cmd = new SqlCommand("SELECT SUM(total_price) FROM tbl_cart", conn);
@@ -85,17 +87,9 @@ namespace PayMonitorUI
             try
             {
                 conn.Open();
-                datareader = cmd.ExecuteReader();
-                if (datareader.HasRows)
-                {
-                    dt.Load(datareader);
-                    dgInventory.DataSource = dt;
-                }
-                else
-                {
-                    MessageBox.Show("[Products] : No Data to Show.");
-                }
-                datareader.Close();
+                // Get the sum of the table
+                Object sum = cmd.ExecuteScalar();
+                lblTotalCharge.Text = sum.ToString();
                 conn.Close();
             }
             catch (Exception ex)
@@ -123,6 +117,7 @@ namespace PayMonitorUI
                 }
                 else
                 {
+                    dgInventory.DataSource = dt;
                     MessageBox.Show("[Products] : No Data to Show.");
                 }
                 datareader.Close();
@@ -153,6 +148,7 @@ namespace PayMonitorUI
                 }
                 else
                 {
+                    dgShoppingCart.DataSource = dt;
                     MessageBox.Show("[Cart] : No Data to Show.");
                 }
                 datareader.Close();
@@ -263,9 +259,15 @@ namespace PayMonitorUI
                     MessageBox.Show("Updated Successfully and added to cart!");
 
                     // Update Cart only -> Decrement value from Cart
-                    cmd = new SqlCommand("UPDATE tbl_cart SET qty = qty + @qty WHERE product_id = @product_id", conn);
+                    cmd = new SqlCommand("UPDATE tbl_cart SET qty += @qty WHERE product_id = @product_id", conn);
                     cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
+                    cmd.Parameters.AddWithValue("@total_price", lblTotalPrice.Text);
                     cmd.Parameters.AddWithValue("@qty", txtQty.Text);
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("UPDATE tbl_cart SET total_price += @total_price WHERE product_id = @product_id", conn);
+                    cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
+                    cmd.Parameters.AddWithValue("@total_price", lblTotalPrice.Text);
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -275,7 +277,7 @@ namespace PayMonitorUI
                     MessageBox.Show("Successfully added to cart!");
 
                     // Add New Item to Cart
-                    cmd = new SqlCommand("INSERT INTO tbl_cart (product_id, product_name, category, qty, price, staff_name, total_price) VALUES (@product_id, @product_name, @category, @qty, @price, @staff_name, @total_price)", conn);
+                    cmd = new SqlCommand("INSERT INTO tbl_cart (product_id, product_name, category, qty, price, total_price) VALUES (@product_id, @product_name, @category, @qty, @price, @total_price)", conn);
                     cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
                     cmd.Parameters.AddWithValue("@product_name", lblProdName.Text);
                     cmd.Parameters.AddWithValue("@category", lblCategory.Text);
@@ -293,6 +295,7 @@ namespace PayMonitorUI
 
                 Load_Products();
                 Load_Cart();
+                Load_TotalCharge();
 
                 conn.Close();
             }
@@ -349,13 +352,15 @@ namespace PayMonitorUI
                 }
 
                 // Update Cart -> Decrement value from Cart
-                cmd.CommandText = "UPDATE tbl_cart SET qty = qty - @qty2 WHERE product_id = @product_id2";
-                cmd.Parameters.AddWithValue("@product_id2", lblProdIdVal.Text);
-                cmd.Parameters.AddWithValue("@qty2", txtQty.Text);
+                cmd = new SqlCommand("UPDATE tbl_cart SET qty -= @qty, total_price -= @total_price WHERE product_id = @product_id", conn);
+                cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
+                cmd.Parameters.AddWithValue("@total_price", lblTotalPrice.Text);
+                cmd.Parameters.AddWithValue("@qty", txtQty.Text);
                 cmd.ExecuteNonQuery();
 
                 Load_Products();
                 Load_Cart();
+                Load_TotalCharge();
 
                 conn.Close();
             }
