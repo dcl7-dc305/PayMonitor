@@ -34,9 +34,14 @@ namespace PayMonitorUI
         };
 
 
-        public frmInventory()
+        public frmInventory(string roletype = "", string lastname = "")
         {
             InitializeComponent();
+
+            lblRoleType.Text = roletype;
+            lblLastName.Text = lastname;
+            lblRoleType.Visible = false;
+            lblLastName.Visible = false;
 
             // initialize items for category comboboxes
             foreach (string category in this.categories)
@@ -254,7 +259,7 @@ namespace PayMonitorUI
             this.Hide();
 
             // Show Main Menu
-            frmMainMenu frmMainMenu = new frmMainMenu();
+            frmMainMenu frmMainMenu = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
             frmMainMenu.Show();
         }
     }

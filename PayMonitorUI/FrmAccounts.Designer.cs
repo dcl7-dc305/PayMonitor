@@ -51,6 +51,8 @@
             this.cmbAccountType = new System.Windows.Forms.ComboBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblRoleType = new System.Windows.Forms.Label();
+            this.lblLast = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -275,11 +277,37 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // lblRoleType
+            // 
+            this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRoleType.Location = new System.Drawing.Point(682, 371);
+            this.lblRoleType.Name = "lblRoleType";
+            this.lblRoleType.Size = new System.Drawing.Size(131, 17);
+            this.lblRoleType.TabIndex = 45;
+            this.lblRoleType.Text = "Role Type";
+            this.lblRoleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLast
+            // 
+            this.lblLast.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLast.BackColor = System.Drawing.Color.Transparent;
+            this.lblLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLast.Location = new System.Drawing.Point(540, 371);
+            this.lblLast.Name = "lblLast";
+            this.lblLast.Size = new System.Drawing.Size(131, 17);
+            this.lblLast.TabIndex = 44;
+            this.lblLast.Text = "LastName";
+            this.lblLast.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLast);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.cmbAccountType);
             this.Controls.Add(this.grdViewAccounts);
@@ -337,5 +365,7 @@
         private System.Windows.Forms.ComboBox cmbAccountType;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label lblRoleType;
+        private System.Windows.Forms.Label lblLast;
     }
 }

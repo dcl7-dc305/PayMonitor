@@ -11,6 +11,8 @@ namespace PayMonitorUI
         SqlConnection conn;
         SqlCommand cmd;
         string ConnStr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
+        string roletype = "";
+        string lastname = "";
 
 
         public frmLogin()
@@ -41,13 +43,19 @@ namespace PayMonitorUI
                     reader = cmd.ExecuteReader(); // execute query inputs
                     if (reader.HasRows) // check if there's any data
                     {
+                        while (reader.Read()) // Read Data from reader object
+                        {
+                            roletype = reader["role_name"].ToString();
+                            lastname = reader["lastname"].ToString();
+                        }
+
                         MessageBox.Show("Login Success");
 
                         //Close Login Form after signing in.
                         this.Hide();
 
                         //Show Main Menu after Login Succes.
-                        frmMainMenu frm2 = new frmMainMenu();
+                        frmMainMenu frm2 = new frmMainMenu(roletype, lastname);
                         frm2.Show();
 
                     }

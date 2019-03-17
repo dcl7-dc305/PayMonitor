@@ -33,11 +33,15 @@ namespace PayMonitorUI
 
         string connstr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
 
-        public frmSalesReport()
+        public frmSalesReport(string roletype = "", string lastname = "")
         {
             InitializeComponent();
             Load_SalesReport();
-            
+
+            lblRoleType.Text = roletype;
+            lblLastName.Text = lastname;
+            lblRoleType.Visible = false;
+            lblLastName.Visible = false;
         }
 
         public void Load_SalesReport()
@@ -136,7 +140,7 @@ namespace PayMonitorUI
         private void btnBackMainMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmMainMenu frm = new frmMainMenu();
+            frmMainMenu frm = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
             frm.Show();
         }
     }

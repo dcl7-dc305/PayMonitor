@@ -22,13 +22,18 @@ namespace PayMonitorUI
         string connstr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
 
 
-        public frmOrdering()
+        public frmOrdering(string roletype = "", string lastname = "Self-Checkout")
         {
             InitializeComponent();
             Load_Products();
             Load_Cart();
             Load_TotalCharge();
             HideElements();
+
+            lblRoleType.Text = roletype;
+            lblLastName.Text = lastname;
+            lblRoleType.Visible = false;
+            lblLastName.Visible = false;
 
             //Disable Buttons
             btnAddToCart.Enabled = false;
@@ -415,7 +420,7 @@ namespace PayMonitorUI
         {
             this.Hide();
 
-            frmCheckout frm = new frmCheckout();
+            frmCheckout frm = new frmCheckout(lblRoleType.Text, lblLastName.Text);
             frm.Show();
         }
 
@@ -438,7 +443,7 @@ namespace PayMonitorUI
             this.Hide();
 
             // Show Main Menu
-            frmMainMenu frmMainMenu = new frmMainMenu();
+            frmMainMenu frmMainMenu = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
             frmMainMenu.Show();
         }
     }

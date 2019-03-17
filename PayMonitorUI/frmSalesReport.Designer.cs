@@ -50,6 +50,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.btnBackMainMenu = new System.Windows.Forms.Button();
+            this.lblRoleType = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSales)).BeginInit();
             this.SuspendLayout();
@@ -278,11 +280,37 @@
             this.btnBackMainMenu.UseVisualStyleBackColor = true;
             this.btnBackMainMenu.Click += new System.EventHandler(this.btnBackMainMenu_Click);
             // 
+            // lblRoleType
+            // 
+            this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRoleType.Location = new System.Drawing.Point(200, 35);
+            this.lblRoleType.Name = "lblRoleType";
+            this.lblRoleType.Size = new System.Drawing.Size(131, 17);
+            this.lblRoleType.TabIndex = 20;
+            this.lblRoleType.Text = "Role Type";
+            this.lblRoleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLastName.Location = new System.Drawing.Point(200, 18);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(131, 17);
+            this.lblLastName.TabIndex = 19;
+            this.lblLastName.Text = "LastName";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 536);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.btnBackMainMenu);
             this.Controls.Add(this.lblTotalSales);
             this.Controls.Add(this.label6);
@@ -326,5 +354,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotalSales;
         private System.Windows.Forms.Button btnBackMainMenu;
+        private System.Windows.Forms.Label lblRoleType;
+        private System.Windows.Forms.Label lblLastName;
     }
 }

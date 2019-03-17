@@ -53,6 +53,8 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblRoleType = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShoppingCart)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -338,11 +340,37 @@
             this.txtSearch.TabIndex = 44;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // lblRoleType
+            // 
+            this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRoleType.Location = new System.Drawing.Point(344, 569);
+            this.lblRoleType.Name = "lblRoleType";
+            this.lblRoleType.Size = new System.Drawing.Size(131, 17);
+            this.lblRoleType.TabIndex = 47;
+            this.lblRoleType.Text = "Role Type";
+            this.lblRoleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLastName.Location = new System.Drawing.Point(344, 552);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(131, 17);
+            this.lblLastName.TabIndex = 46;
+            this.lblLastName.Text = "LastName";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmOrdering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 604);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblCategory);
@@ -397,5 +425,7 @@
         private System.Windows.Forms.Button btnReturnInventory;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblRoleType;
+        private System.Windows.Forms.Label lblLastName;
     }
 }

@@ -49,6 +49,8 @@
             this.tblproductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCategory = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblRoleType = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -240,11 +242,37 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblRoleType
+            // 
+            this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRoleType.Location = new System.Drawing.Point(135, 273);
+            this.lblRoleType.Name = "lblRoleType";
+            this.lblRoleType.Size = new System.Drawing.Size(131, 17);
+            this.lblRoleType.TabIndex = 65;
+            this.lblRoleType.Text = "Role Type";
+            this.lblRoleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLastName.Location = new System.Drawing.Point(135, 256);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(131, 17);
+            this.lblLastName.TabIndex = 64;
+            this.lblLastName.Text = "LastName";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchCategory);
             this.Controls.Add(this.cmbCategory);
@@ -297,5 +325,7 @@
         private System.Windows.Forms.ComboBox searchCategory;
         private System.Windows.Forms.BindingSource tblproductsBindingSource;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblRoleType;
+        private System.Windows.Forms.Label lblLastName;
     }
 }

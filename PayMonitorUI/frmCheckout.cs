@@ -22,7 +22,7 @@ namespace PayMonitorUI
 
         string connstr = ConfigurationManager.ConnectionStrings["PayMonitorDB"].ConnectionString;
 
-        public frmCheckout()
+        public frmCheckout(string roletype = "", string lastname = "")
         {
             InitializeComponent();
             Load_Checkout();
@@ -30,6 +30,11 @@ namespace PayMonitorUI
             btnPay.Enabled = false;
             lblLastIdSales.Visible = false;
             this.ControlBox = false;
+
+            lblRoleType.Text = roletype;
+            lblLastName.Text = lastname;
+            lblRoleType.Visible = false;
+            lblLastName.Visible = false;
         }
 
         public void Load_LastNumberInSales()
@@ -91,7 +96,7 @@ namespace PayMonitorUI
                     string sid = sales_id.ToString();
                     string tc = trans_id.ToString();
                     string td = todaysql.ToString();
-                    string sl = "Self-Checkout"; // put last name of operator / admin
+                    string sl = lblLastName.Text; // put last name of operator / admin
                     string pid = dr["product_id"].ToString();
                     string pname = dr["product_name"].ToString();
                     string categ = dr["category"].ToString();
@@ -182,7 +187,7 @@ namespace PayMonitorUI
 
             this.Hide();
 
-            frmOrdering frmOrdering = new frmOrdering();
+            frmOrdering frmOrdering = new frmOrdering(lblRoleType.Text, lblLastName.Text);
             frmOrdering.Show();
         }
 
@@ -190,7 +195,7 @@ namespace PayMonitorUI
         {
             this.Hide();
 
-            frmOrdering frm = new frmOrdering();
+            frmOrdering frm = new frmOrdering(lblRoleType.Text, lblLastName.Text);
             frm.Show();
         }
 

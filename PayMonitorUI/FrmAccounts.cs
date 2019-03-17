@@ -15,10 +15,15 @@ namespace PayMonitorUI
 {
     public partial class FrmAccounts : Form
     {
-        public FrmAccounts()
+        public FrmAccounts(string roletype = "", string lastname = "")
         {
             InitializeComponent();
             Load_ViewRegisteredData();
+
+            lblRoleType.Text = roletype;
+            lblLast.Text = lastname;
+            lblRoleType.Visible = false;
+            lblLast.Visible = false;
         }
 
         SqlCommand cmd;
@@ -161,7 +166,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Main Menu after Login Succes.
-            frmMainMenu frm2 = new frmMainMenu();
+            frmMainMenu frm2 = new frmMainMenu(lblRoleType.Text, lblLast.Text);
             frm2.Show();
 
         }

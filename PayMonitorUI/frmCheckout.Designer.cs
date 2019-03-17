@@ -40,6 +40,8 @@
             this.lblChange = new System.Windows.Forms.Label();
             this.btnCancelCheckout = new System.Windows.Forms.Button();
             this.lblLastIdSales = new System.Windows.Forms.Label();
+            this.lblRoleType = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgCheckout)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,11 +178,37 @@
             this.lblLastIdSales.TabIndex = 12;
             this.lblLastIdSales.Text = "sales_id";
             // 
+            // lblRoleType
+            // 
+            this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRoleType.Location = new System.Drawing.Point(159, 26);
+            this.lblRoleType.Name = "lblRoleType";
+            this.lblRoleType.Size = new System.Drawing.Size(131, 17);
+            this.lblRoleType.TabIndex = 14;
+            this.lblRoleType.Text = "Role Type";
+            this.lblRoleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLastName.Location = new System.Drawing.Point(159, 9);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(131, 17);
+            this.lblLastName.TabIndex = 13;
+            this.lblLastName.Text = "LastName";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 389);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblLastIdSales);
             this.Controls.Add(this.btnCancelCheckout);
             this.Controls.Add(this.lblChange);
@@ -220,5 +248,7 @@
         private System.Windows.Forms.Label lblChange;
         private System.Windows.Forms.Button btnCancelCheckout;
         private System.Windows.Forms.Label lblLastIdSales;
+        private System.Windows.Forms.Label lblRoleType;
+        private System.Windows.Forms.Label lblLastName;
     }
 }

@@ -12,9 +12,17 @@ namespace PayMonitorUI
 {
     public partial class frmMainMenu : Form
     {
-        public frmMainMenu()
-        {
+        public frmMainMenu(string roletype = "", string lastname = "")
+        { 
             InitializeComponent();
+
+            lblRoleType.Text = roletype;
+            lblLastName.Text = lastname;
+
+            if(lblRoleType.Text == "Staff") // Staff Permissions
+            {
+                btnAccount.Enabled = false;
+            }
         }
 
 
@@ -24,7 +32,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Accounts.
-            FrmAccounts FrmAccounts = new FrmAccounts();
+            FrmAccounts FrmAccounts = new FrmAccounts(lblRoleType.Text, lblLastName.Text);
             FrmAccounts.Show();
 
         }
@@ -35,7 +43,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Inventory.
-            frmInventory frmInventory = new frmInventory();
+            frmInventory frmInventory = new frmInventory(lblRoleType.Text, lblLastName.Text);
             frmInventory.Show();
         }
 
@@ -45,7 +53,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Ordering.
-            frmOrdering frmOrdering = new frmOrdering();
+            frmOrdering frmOrdering = new frmOrdering(lblRoleType.Text, lblLastName.Text);
             frmOrdering.Show();
         }
 
@@ -55,7 +63,7 @@ namespace PayMonitorUI
             this.Hide();
 
             //Show Ordering.
-            frmSalesReport frmSalesReport = new frmSalesReport();
+            frmSalesReport frmSalesReport = new frmSalesReport(lblRoleType.Text, lblLastName.Text);
             frmSalesReport.Show();
         }
 
@@ -67,6 +75,11 @@ namespace PayMonitorUI
             // Back to Logout
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
