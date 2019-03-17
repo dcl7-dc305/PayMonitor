@@ -20,20 +20,53 @@ namespace PayMonitorUI
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            //Close Login Form after signing in.
+            //Hide MainMenu.
             this.Hide();
 
-            //Show Main Menu after Login Succes.
-            FrmAccounts frm3 = new FrmAccounts();
-            frm3.Show();
+            //Show Accounts.
+            FrmAccounts FrmAccounts = new FrmAccounts();
+            FrmAccounts.Show();
 
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            //Hide MainMenu.
             this.Hide();
+
+            //Show Inventory.
             frmInventory frmInventory = new frmInventory();
             frmInventory.Show();
+        }
+
+        private void btnOrdering_Click(object sender, EventArgs e)
+        {
+            //Hide MainMenu.
+            this.Hide();
+
+            //Show Ordering.
+            frmOrdering frmOrdering = new frmOrdering();
+            frmOrdering.Show();
+        }
+
+        private void btnSalesreport_Click(object sender, EventArgs e)
+        {
+            //Hide MainMenu.
+            this.Hide();
+
+            //Show Ordering.
+            frmSalesReport frmSalesReport = new frmSalesReport();
+            frmSalesReport.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Hide Main Menu
+            this.Hide();
+
+            // Back to Logout
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
         }
     }
 }

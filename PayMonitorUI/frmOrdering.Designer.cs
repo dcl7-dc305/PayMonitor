@@ -34,6 +34,7 @@
             this.dgShoppingCart = new System.Windows.Forms.DataGridView();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReturnInventory = new System.Windows.Forms.Button();
             this.lblUnitPrice = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.lblTotalCharge = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
-            this.btnReturnInventory = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
@@ -137,6 +137,16 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected Item";
+            // 
+            // btnReturnInventory
+            // 
+            this.btnReturnInventory.Location = new System.Drawing.Point(140, 243);
+            this.btnReturnInventory.Name = "btnReturnInventory";
+            this.btnReturnInventory.Size = new System.Drawing.Size(124, 44);
+            this.btnReturnInventory.TabIndex = 20;
+            this.btnReturnInventory.Text = "Return to Inventory";
+            this.btnReturnInventory.UseVisualStyleBackColor = true;
+            this.btnReturnInventory.Click += new System.EventHandler(this.btnReturnInventory_Click);
             // 
             // lblUnitPrice
             // 
@@ -275,6 +285,7 @@
             this.btnBackMainMenu.TabIndex = 17;
             this.btnBackMainMenu.Text = "<< Back to Main Menu";
             this.btnBackMainMenu.UseVisualStyleBackColor = true;
+            this.btnBackMainMenu.Click += new System.EventHandler(this.btnBackMainMenu_Click);
             // 
             // lblTotalCharge
             // 
@@ -307,16 +318,6 @@
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(35, 26);
             this.lblCategory.TabIndex = 18;
-            // 
-            // btnReturnInventory
-            // 
-            this.btnReturnInventory.Location = new System.Drawing.Point(140, 243);
-            this.btnReturnInventory.Name = "btnReturnInventory";
-            this.btnReturnInventory.Size = new System.Drawing.Size(124, 44);
-            this.btnReturnInventory.TabIndex = 20;
-            this.btnReturnInventory.Text = "Return to Inventory";
-            this.btnReturnInventory.UseVisualStyleBackColor = true;
-            this.btnReturnInventory.Click += new System.EventHandler(this.btnReturnInventory_Click);
             // 
             // lblSearch
             // 

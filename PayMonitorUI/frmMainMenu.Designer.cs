@@ -33,7 +33,7 @@
             this.btnOrdering = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnSalesreport = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAccount
@@ -63,6 +63,7 @@
             this.btnOrdering.TabIndex = 2;
             this.btnOrdering.Text = "Ordering";
             this.btnOrdering.UseVisualStyleBackColor = true;
+            this.btnOrdering.Click += new System.EventHandler(this.btnOrdering_Click);
             // 
             // btnInventory
             // 
@@ -82,22 +83,24 @@
             this.btnSalesreport.TabIndex = 4;
             this.btnSalesreport.Text = "Sales Report";
             this.btnSalesreport.UseVisualStyleBackColor = true;
+            this.btnSalesreport.Click += new System.EventHandler(this.btnSalesreport_Click);
             // 
-            // button5
+            // btnLogout
             // 
-            this.button5.Location = new System.Drawing.Point(450, 19);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 22);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Logout";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnLogout.Location = new System.Drawing.Point(450, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(88, 38);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 312);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSalesreport);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnOrdering);
@@ -119,6 +122,6 @@
         private System.Windows.Forms.Button btnOrdering;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnSalesreport;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

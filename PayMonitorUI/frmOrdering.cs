@@ -33,6 +33,7 @@ namespace PayMonitorUI
             //Disable Buttons
             btnAddToCart.Enabled = false;
             btnReturnInventory.Enabled = false;
+            txtQty.Enabled = false;
 
             txtQty.MaxLength = 2;
         }
@@ -162,6 +163,7 @@ namespace PayMonitorUI
 
         private void dgInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtQty.Enabled = true;
             btnAddToCart.Enabled = true; // Disable Add to Cart
             btnReturnInventory.Enabled = false; // Enable Return to Inventory
 
@@ -372,6 +374,7 @@ namespace PayMonitorUI
 
         private void dgShoppingCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtQty.Enabled = true;
             btnAddToCart.Enabled = false; // Disable Add to Cart
             btnReturnInventory.Enabled = true; // Enable Return to Inventory
 
@@ -427,6 +430,16 @@ namespace PayMonitorUI
             adapt.Fill(dt);
             dgInventory.DataSource = dt;
             conn.Close();
+        }
+
+        private void btnBackMainMenu_Click(object sender, EventArgs e)
+        {
+            // Hide this
+            this.Hide();
+
+            // Show Main Menu
+            frmMainMenu frmMainMenu = new frmMainMenu();
+            frmMainMenu.Show();
         }
     }
 }

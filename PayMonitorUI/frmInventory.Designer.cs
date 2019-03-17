@@ -163,6 +163,7 @@
             this.btnBack.TabIndex = 55;
             this.btnBack.Text = "<< Back to Main Menu";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // submitButton
             // 
@@ -264,7 +265,8 @@
             this.Controls.Add(this.lblManageInventory);
             this.Controls.Add(this.lblProductID);
             this.Name = "frmInventory";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inventory";
             this.Load += new System.EventHandler(this.frmInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).EndInit();

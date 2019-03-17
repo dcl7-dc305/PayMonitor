@@ -179,6 +179,11 @@ namespace PayMonitorUI
             SaveCartToSales();
             MessageBox.Show("Thank You! Payment Received :)");
             MessageBox.Show($"Your change is: $ {lblChange.Text}");
+
+            this.Hide();
+
+            frmOrdering frmOrdering = new frmOrdering();
+            frmOrdering.Show();
         }
 
         private void btnCancelCheckout_Click(object sender, EventArgs e)

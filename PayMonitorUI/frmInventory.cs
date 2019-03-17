@@ -247,5 +247,15 @@ namespace PayMonitorUI
         {
             this.clearSearch();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Hide this
+            this.Hide();
+
+            // Show Main Menu
+            frmMainMenu frmMainMenu = new frmMainMenu();
+            frmMainMenu.Show();
+        }
     }
 }
