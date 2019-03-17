@@ -35,6 +35,9 @@ namespace PayMonitorUI
             lblRoleType.Visible = false;
             lblLastName.Visible = false;
 
+            if (lblRoleType.Text == "")
+                btnBackMainMenu.Text = "<< Back to Home";
+
             //Disable Buttons
             btnAddToCart.Enabled = false;
             btnReturnInventory.Enabled = false;
@@ -442,9 +445,18 @@ namespace PayMonitorUI
             // Hide this
             this.Hide();
 
-            // Show Main Menu
-            frmMainMenu frmMainMenu = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
-            frmMainMenu.Show();
+            if (lblRoleType.Text == "")
+            {
+                // Show Who Are You? Form
+                frmChooseRole frmChooseRole = new frmChooseRole();
+                frmChooseRole.Show();
+            }
+            else
+            {
+                // Show Main Menu
+                frmMainMenu frmMainMenu = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
+                frmMainMenu.Show();
+            }
         }
     }
 }
