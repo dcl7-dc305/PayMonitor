@@ -104,7 +104,7 @@ namespace PayMonitorUI
         {
             conn = new SqlConnection(connstr);
             string startDate = dtStart.Value.ToString("yyyy-MM-dd");
-            string endDate = dtEnd.Value.ToString("yyyy-MM-dd");
+            string endDate = dtEnd.Value.AddDays(1).ToString("yyyy-MM-dd");
             string sid = txtSalesId.Text;
             string tc = txtTransactionCode.Text;
             string sln = txtStaffLastName.Text;
@@ -112,29 +112,46 @@ namespace PayMonitorUI
             string pname = txtProdName.Text;
 
             // search anything by account_id, username, firstname, last_name, role_name
-            string qry = $"SELECT *, SUM(total_price) OVER () AS SumTotal FROM tbl_sales WHERE transaction_date BETWEEN '{startDate}' AND '{endDate}' OR sales_id LIKE '%{sid}%' AND transaction_code LIKE '%{tc}%' AND staff_lname LIKE '%{sln}%' AND product_id LIKE '%{pid}%' ORDER BY sales_id DESC, transaction_date DESC;";
+            string qry = $"SELECT *, SUM(total_price) OVER () AS SumTotal FROM tbl_sales WHERE transaction_date BETWEEN '{startDate}' AND '{endDate}' AND sales_id LIKE '%{sid}%' AND transaction_code LIKE '%{tc}%' AND staff_lname LIKE '%{sln}%' AND product_id LIKE '%{pid}%' ORDER BY sales_id DESC, transaction_date DESC;";
             adapt = new SqlDataAdapter(qry, conn);
 
-            conn.Open();
-            dt = new DataTable();
-            adapt.Fill(dt);
-            dt.Columns["sales_id"].ColumnName = "Sales ID";
-            dt.Columns["transaction_code"].ColumnName = "Transaction Code";
-            dt.Columns["transaction_date"].ColumnName = "Transaction Date";
-            dt.Columns["staff_lname"].ColumnName = "Staff L. Name";
-            dt.Columns["product_id"].ColumnName = "Product ID";
-            dt.Columns["product_name"].ColumnName = "Product Name";
-            dt.Columns["qty"].ColumnName = "Quantity";
-            dt.Columns["price"].ColumnName = "Price";
-            dt.Columns["total_price"].ColumnName = "Total Price";
+            try
+            {
+                conn.Open();
+                dt = new DataTable();
+                adapt.Fill(dt);
+                dt.Columns["sales_id"].ColumnName = "Sales ID";
+                dt.Columns["transaction_code"].ColumnName = "Transaction Code";
+                dt.Columns["transaction_date"].ColumnName = "Transaction Date";
+                dt.Columns["staff_lname"].ColumnName = "Staff L. Name";
+                dt.Columns["product_id"].ColumnName = "Product ID";
+                dt.Columns["product_name"].ColumnName = "Product Name";
+                dt.Columns["qty"].ColumnName = "Quantity";
+                dt.Columns["price"].ColumnName = "Price";
+                dt.Columns["total_price"].ColumnName = "Total Price";
 
-            Object field = dt.Rows[dt.Rows.Count - 1]["SumTotal"]; // Get Total of SumTotal
-            lblTotalSales.Text = field.ToString();
 
-            dt.Columns.RemoveAt(dt.Columns.Count - 1); // Hide Last Column after getting SumTotal
 
-            dgSales.DataSource = dt;
-            conn.Close();
+                if (dt.Rows.Count <= 0) // if no data on any filter
+                {
+                    MessageBox.Show("[Sales] : No Data to show");
+                }
+                else
+                {
+                    Object field = dt.Rows[dt.Rows.Count - 1]["SumTotal"];  // Get Total of SumTotal
+                    lblTotalSales.Text = field.ToString();
+                }
+
+                dt.Columns.RemoveAt(dt.Columns.Count - 1); // Hide Last Column after getting SumTotal
+
+                dgSales.DataSource = dt;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnBackMainMenu_Click(object sender, EventArgs e)
