@@ -135,6 +135,7 @@ namespace PayMonitorUI
                 if (dt.Rows.Count <= 0) // if no data on any filter
                 {
                     MessageBox.Show("[Sales] : No Data to show");
+                    lblTotalSales.Text = "";
                 }
                 else
                 {
