@@ -329,6 +329,7 @@
             this.Controls.Add(this.txtAccountID);
             this.Controls.Add(this.lblManageAccount);
             this.Controls.Add(this.lblAccountID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximumSize = new System.Drawing.Size(840, 427);
             this.Name = "FrmAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

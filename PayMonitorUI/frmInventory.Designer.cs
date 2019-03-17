@@ -292,6 +292,7 @@
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.lblRoleType);
             this.Controls.Add(this.lblLastName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
