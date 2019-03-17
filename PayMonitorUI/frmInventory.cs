@@ -28,16 +28,21 @@ namespace PayMonitorUI
             {"update success", "Inventory updated"},
         };
         string[] categories = { 
-            "Category 1",
-            "Category 2",
-            "Category 3"
+            "Frozen Food",
+            "Meat",
+            "Dairy",
+            "Rice",
+            "Cleaners",
+            "Paper Goods",
+            "Personal Care",
+            "Other"
         };
 
 
         public frmInventory(string roletype = "", string lastname = "")
         {
             InitializeComponent();
-
+            
             lblRoleType.Text = roletype;
             lblLastName.Text = lastname;
             lblRoleType.Visible = false;
@@ -219,6 +224,39 @@ namespace PayMonitorUI
         #endregion
 
         private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lblRoleType.Text == "Admin")
+            {
+                VerifyDelete();
+            }
+            else
+            {
+                // Admin Permission Here.
+                frmAdminPermission frmAdminPermission = new frmAdminPermission();
+                //frmAdminPermission.Show();
+
+                if (frmAdminPermission.ShowDialog(this) == DialogResult.OK)
+                {
+                    VerifyDelete();
+                }
+                else
+                    // Do nothing
+
+                frmAdminPermission.Dispose();
+            }
+            
+        }
+
+        public void VerifyDelete()
+        {
+            DialogResult verify = MessageBox.Show("Are you sure to delete this product?", "Confirmation", MessageBoxButtons.YesNo);
+            if (verify == DialogResult.Yes)
+            {
+                DeleteProduct();
+            }
+        }
+
+        public void DeleteProduct()
         {
             SqlCommand sqlCommand = new SqlCommand("DELETE FROM tbl_products WHERE product_id=@product_id", this.sqlConnection);
             sqlCommand.Parameters.AddWithValue("@product_id", this.txtProductID.Text);

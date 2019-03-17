@@ -247,7 +247,7 @@
             this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
             this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblRoleType.Location = new System.Drawing.Point(135, 273);
+            this.lblRoleType.Location = new System.Drawing.Point(16, 43);
             this.lblRoleType.Name = "lblRoleType";
             this.lblRoleType.Size = new System.Drawing.Size(131, 17);
             this.lblRoleType.TabIndex = 65;
@@ -259,7 +259,7 @@
             this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblLastName.BackColor = System.Drawing.Color.Transparent;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblLastName.Location = new System.Drawing.Point(135, 256);
+            this.lblLastName.Location = new System.Drawing.Point(16, 26);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(131, 17);
             this.lblLastName.TabIndex = 64;
@@ -271,8 +271,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 388);
-            this.Controls.Add(this.lblRoleType);
-            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchCategory);
             this.Controls.Add(this.cmbCategory);
@@ -292,6 +290,8 @@
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblManageInventory);
             this.Controls.Add(this.lblProductID);
+            this.Controls.Add(this.lblRoleType);
+            this.Controls.Add(this.lblLastName);
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
