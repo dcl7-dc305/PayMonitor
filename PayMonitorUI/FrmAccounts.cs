@@ -41,8 +41,8 @@ namespace PayMonitorUI
             //conn.Close();
             Load_ViewRegisteredData();
             AutoIncrementIDForm();
-            
-            
+
+
 
         }
 
@@ -122,7 +122,7 @@ namespace PayMonitorUI
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
 
         }
 
@@ -207,16 +207,7 @@ namespace PayMonitorUI
 
         private void grdViewAccounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Show Data from the database into the designated textboxes.
-            DataGridViewRow row = grdViewAccounts.Rows[e.RowIndex];
-
-            txtAccountID.Text = row.Cells["account_id"].Value.ToString();
-            cmbAccountType.Text = row.Cells["role_name"].Value.ToString();
-            txtUsername.Text = row.Cells["username"].Value.ToString();
-            txtPassword.Text = row.Cells["password"].Value.ToString();
-            txtFirstname.Text = row.Cells["firstname"].Value.ToString();
-            txtLastname.Text = row.Cells["lastname"].Value.ToString();
-            txtAccountID.Enabled = false;
+            
 
         }
 
@@ -277,8 +268,110 @@ namespace PayMonitorUI
                 conn.Close();
             }
         }
+
+        private void lblSearch_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtAccountID_Validating(object sender, CancelEventArgs e)
+        {
+ 
+        }
+
+        private void cmbAccountType_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbAccountType.Text))
+            {
+                e.Cancel = true;
+                cmbAccountType.Focus();
+                errorProvider.SetError(cmbAccountType, "Please choose the account type!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbAccountType, "");
+            }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                e.Cancel = true;
+                cmbAccountType.Focus();
+                errorProvider.SetError(txtUsername, "Please enter your Username!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtUsername, "");
+            }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                e.Cancel = true;
+                cmbAccountType.Focus();
+                errorProvider.SetError(txtPassword, "Please enter your Password!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtPassword, "");
+            }
+        }
+
+        private void txtFirstname_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFirstname.Text))
+            {
+                e.Cancel = true;
+                cmbAccountType.Focus();
+                errorProvider.SetError(txtFirstname, "Please enter your Firstname!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtFirstname, "");
+            }
+        }
+
+        private void txtLastname_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtLastname.Text))
+            {
+                e.Cancel = true;
+                cmbAccountType.Focus();
+                errorProvider.SetError(txtLastname, "Please enter your Lastname!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtLastname, "");
+            }
+        }
+
+        private void grdViewAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Show Data from the database into the designated textboxes.
+            DataGridViewRow row = grdViewAccounts.Rows[e.RowIndex];
+
+            txtAccountID.Text = row.Cells["account_id"].Value.ToString();
+            cmbAccountType.Text = row.Cells["role_name"].Value.ToString();
+            txtUsername.Text = row.Cells["username"].Value.ToString();
+            txtPassword.Text = row.Cells["password"].Value.ToString();
+            txtFirstname.Text = row.Cells["firstname"].Value.ToString();
+            txtLastname.Text = row.Cells["lastname"].Value.ToString();
+            txtAccountID.Enabled = false;
+        }
     }
-
 }
-
 

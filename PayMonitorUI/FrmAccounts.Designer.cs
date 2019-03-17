@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grdViewAccounts = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -49,7 +50,9 @@
             this.lblAccountID = new System.Windows.Forms.Label();
             this.cmbAccountType = new System.Windows.Forms.ComboBox();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // grdViewAccounts
@@ -63,7 +66,7 @@
             this.grdViewAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdViewAccounts.Size = new System.Drawing.Size(521, 314);
             this.grdViewAccounts.TabIndex = 41;
-            this.grdViewAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdViewAccounts_CellContentClick);
+            this.grdViewAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdViewAccounts_CellClick);
             // 
             // btnDelete
             // 
@@ -136,6 +139,7 @@
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(138, 24);
             this.txtLastname.TabIndex = 33;
+            this.txtLastname.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastname_Validating);
             // 
             // lblLastname
             // 
@@ -154,6 +158,7 @@
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(138, 24);
             this.txtFirstname.TabIndex = 31;
+            this.txtFirstname.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstname_Validating);
             // 
             // lblFirstname
             // 
@@ -172,6 +177,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(138, 24);
             this.txtPassword.TabIndex = 29;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // lblPassword
             // 
@@ -190,6 +196,8 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(138, 24);
             this.txtUsername.TabIndex = 27;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // lblUsername
             // 
@@ -218,6 +226,7 @@
             this.txtAccountID.Name = "txtAccountID";
             this.txtAccountID.Size = new System.Drawing.Size(138, 24);
             this.txtAccountID.TabIndex = 23;
+            this.txtAccountID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAccountID_Validating);
             // 
             // lblManageAccount
             // 
@@ -249,6 +258,7 @@
             this.cmbAccountType.Name = "cmbAccountType";
             this.cmbAccountType.Size = new System.Drawing.Size(139, 21);
             this.cmbAccountType.TabIndex = 42;
+            this.cmbAccountType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAccountType_Validating);
             // 
             // lblSearch
             // 
@@ -259,6 +269,11 @@
             this.lblSearch.Size = new System.Drawing.Size(59, 18);
             this.lblSearch.TabIndex = 43;
             this.lblSearch.Text = "Search:";
+            this.lblSearch.Validating += new System.ComponentModel.CancelEventHandler(this.lblSearch_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FrmAccounts
             // 
@@ -292,6 +307,7 @@
             this.Text = "Accounts";
             this.Load += new System.EventHandler(this.FrmAccounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdViewAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +336,6 @@
         private System.Windows.Forms.Label lblAccountID;
         private System.Windows.Forms.ComboBox cmbAccountType;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

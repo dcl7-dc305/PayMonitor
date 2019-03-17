@@ -16,7 +16,7 @@ namespace PayMonitorUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSalesReport());
+            Application.Run(new frmLogin());
         }
     }
 }
