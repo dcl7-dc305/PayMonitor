@@ -167,7 +167,6 @@ namespace PayMonitorUI
             DataTable datatable = new DataTable();
             string searchTerm = this.searchTerm.Text;
             string searchCategory = this.getComboBoxSelecteditem(this.searchCategory);
-            MessageBox.Show(searchCategory);
             string qry = $"SELECT * FROM tbl_products WHERE " +
                 $"(product_id LIKE '%{searchTerm}%' OR " +
                 $"product_name LIKE '%{searchTerm}%' OR " +
