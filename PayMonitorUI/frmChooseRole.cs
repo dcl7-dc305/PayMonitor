@@ -19,12 +19,20 @@ namespace PayMonitorUI
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            //Hide Choose Role Form
+            this.Hide();
+
+            //Show Employee Login
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
+            //Hide Choose Role Form
+            this.Hide();
+
+            //Show Ordering
             frmOrdering frmOrdering = new frmOrdering();
             frmOrdering.Show();
         }
