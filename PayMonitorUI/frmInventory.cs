@@ -14,7 +14,11 @@ using System.Configuration;
 namespace PayMonitorUI
 {
     // TODO 
-    // make quantity and price accept only number
+    // [done] make id, quantity and price accept only number
+    // form validation style - error provider
+    // default form category to "other"
+    // default search category to "all"
+    // implement isDuplicate
 
     public partial class frmInventory : Form
     {
@@ -137,7 +141,7 @@ namespace PayMonitorUI
             return !(
                 string.IsNullOrEmpty(this.txtProductID.Text) ||
                 string.IsNullOrEmpty(this.txtProductName.Text) ||
-                string.IsNullOrEmpty(this.cmbCategory.SelectedItem.ToString()) ||
+                this.cmbCategory.SelectedIndex < 0 ||
                 string.IsNullOrEmpty(this.txtPrice.Text) ||
                 string.IsNullOrEmpty(this.txtQuantity.Text)
             );
@@ -151,7 +155,7 @@ namespace PayMonitorUI
 
         private void clearSearch()
         {
-            this.searchCategory.Text = "";
+            this.searchTerm.Text = "";
             this.searchCategory.SelectedIndex = -1;
         }
 
@@ -213,7 +217,7 @@ namespace PayMonitorUI
         {
             this.isEdit = isEdit;
             this.txtProductID.Enabled = !isEdit;
-            this.submitButton.Text = isEdit ? "Update" : "Add";
+            this.submitButton.Text = (isEdit ? "Update" : "Add") + "Product";
         }
 
         private int getCategoryIndex(string category)
@@ -298,6 +302,36 @@ namespace PayMonitorUI
             // Show Main Menu
             frmMainMenu frmMainMenu = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
             frmMainMenu.Show();
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
