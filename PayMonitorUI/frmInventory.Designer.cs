@@ -51,8 +51,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblRoleType = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductID
@@ -83,6 +85,7 @@
             this.txtProductID.Size = new System.Drawing.Size(134, 24);
             this.txtProductID.TabIndex = 45;
             this.txtProductID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductID_KeyPress);
+            this.txtProductID.Validating += new System.ComponentModel.CancelEventHandler(this.txtProductID_Validating);
             // 
             // lblProductName
             // 
@@ -111,6 +114,7 @@
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(134, 24);
             this.txtProductName.TabIndex = 48;
+            this.txtProductName.Validating += new System.ComponentModel.CancelEventHandler(this.txtProductName_Validating);
             // 
             // lblPrice
             // 
@@ -173,20 +177,21 @@
             // submitButton
             // 
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(19, 303);
+            this.submitButton.Location = new System.Drawing.Point(19, 318);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(102, 26);
+            this.submitButton.Size = new System.Drawing.Size(148, 26);
             this.submitButton.TabIndex = 56;
             this.submitButton.Text = "Add Product";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
+            this.submitButton.Validating += new System.ComponentModel.CancelEventHandler(this.submitButton_Validating);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(154, 347);
+            this.btnClear.Location = new System.Drawing.Point(19, 350);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(102, 26);
+            this.btnClear.Size = new System.Drawing.Size(247, 26);
             this.btnClear.TabIndex = 58;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -195,9 +200,9 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(154, 303);
+            this.btnDelete.Location = new System.Drawing.Point(173, 318);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(102, 26);
+            this.btnDelete.Size = new System.Drawing.Size(93, 26);
             this.btnDelete.TabIndex = 59;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -210,6 +215,8 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(134, 21);
             this.cmbCategory.TabIndex = 61;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            this.cmbCategory.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCategory_Validating);
             // 
             // gridViewInventory
             // 
@@ -269,6 +276,10 @@
             this.lblLastName.Text = "LastName";
             this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +313,7 @@
             this.Load += new System.EventHandler(this.frmInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +343,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblRoleType;
         private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -14,11 +14,7 @@ using System.Configuration;
 namespace PayMonitorUI
 {
     // TODO 
-    // [done] make id, quantity and price accept only number
     // form validation style - error provider
-    // default form category to "other"
-    // default search category to "all"
-    // [done] implement isDuplicate
 
     public partial class frmInventory : Form
     {
@@ -53,13 +49,16 @@ namespace PayMonitorUI
             lblLastName.Visible = false;
 
             // initialize items for category comboboxes
+            this.searchCategory.Items.Add("All");
             foreach (string category in this.categories)
             {
                 this.cmbCategory.Items.Add(category);
                 this.searchCategory.Items.Add(category);
             }
-            this.cmbCategory.SelectedIndex = -1;
-            this.searchCategory.SelectedIndex = -1;
+            this.clearForm();
+            this.clearSearch();
+            //this.cmbCategory.SelectedIndex = -1;
+            //this.searchCategory.SelectedIndex = -1;
         }
 
         private void frmInventory_Load(object sender, EventArgs e)
@@ -170,7 +169,7 @@ namespace PayMonitorUI
         private void clearSearch()
         {
             this.searchTerm.Text = "";
-            this.searchCategory.SelectedIndex = -1;
+            this.searchCategory.SelectedIndex = 0;
         }
 
         private string getComboBoxSelecteditem(ComboBox comboBox)
@@ -184,7 +183,7 @@ namespace PayMonitorUI
             SqlDataReader datareader;
             DataTable datatable = new DataTable();
             string searchTerm = this.searchTerm.Text;
-            string searchCategory = this.getComboBoxSelecteditem(this.searchCategory);
+            string searchCategory = this.searchCategory.SelectedIndex == 0 ? "" : this.getComboBoxSelecteditem(this.searchCategory);
             string qry = $"SELECT * FROM tbl_products WHERE " +
                 $"(product_id LIKE '%{searchTerm}%' OR " +
                 $"product_name LIKE '%{searchTerm}%' OR " +
@@ -218,7 +217,7 @@ namespace PayMonitorUI
             this.sqlConnection.Close();
         }
 
-        private void setFormValue(string id = "", string productName = "", string category = "", string price = "", string quantity = "")
+        private void setFormValue(string id = "", string productName = "", string category = "Other", string price = "", string quantity = "")
         {
             this.txtProductID.Text = id;
             this.txtProductName.Text = productName;
@@ -231,7 +230,7 @@ namespace PayMonitorUI
         {
             this.isEdit = isEdit;
             this.txtProductID.Enabled = !isEdit;
-            this.submitButton.Text = (isEdit ? "Update" : "Add") + "Product";
+            this.submitButton.Text = (isEdit ? "Update" : "Add") + " Product";
         }
 
         private int getCategoryIndex(string category)
@@ -346,6 +345,67 @@ namespace PayMonitorUI
             {
                 e.Handled = true;
             }
+        }
+
+        private void submitButton_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtProductID_Validating(object sender, CancelEventArgs e)
+        {
+            this.nullValidation(this.txtProductID, "ID is required.", e);
+            //if (string.IsNullOrEmpty(this.txtProductID.Text))
+            //{
+            //    e.Cancel = true;
+            //    this.txtProductID.Focus();
+            //    errorProvider.SetError(this.txtProductID, "ID is required.");
+            //}
+            //else
+            //{
+            //    e.Cancel = false;
+            //    errorProvider.SetError(this.txtProductID, "");
+            //}
+        }
+
+        private void nullValidation(TextBox box, string message, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(box.Text))
+            {
+                e.Cancel = true;
+                box.Focus();
+                errorProvider.SetError(box, message);
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(box, "");
+            }
+        }
+
+        private void txtProductName_Validating(object sender, CancelEventArgs e)
+        {
+            this.nullValidation(this.txtProductName, "Name is required.", e);
+        }
+
+        private void cmbCategory_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.cmbCategory.SelectedIndex < 0)
+            {
+                e.Cancel = true;
+                this.cmbCategory.Focus();
+                errorProvider.SetError(this.cmbCategory, "Category is required.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(this.cmbCategory, "");
+            }
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.reloadTable();
         }
     }
 }
