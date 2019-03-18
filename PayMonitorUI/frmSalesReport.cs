@@ -161,5 +161,25 @@ namespace PayMonitorUI
             frmMainMenu frm = new frmMainMenu(lblRoleType.Text, lblLastName.Text);
             frm.Show();
         }
+
+        private void txtSalesId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProdId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Accept Numbers only
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtTransactionCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Accept Numbers only
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

@@ -196,6 +196,7 @@
             this.txtProdId.Name = "txtProdId";
             this.txtProdId.Size = new System.Drawing.Size(199, 26);
             this.txtProdId.TabIndex = 3;
+            this.txtProdId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProdId_KeyPress);
             // 
             // txtStaffLastName
             // 
@@ -212,6 +213,7 @@
             this.txtTransactionCode.Name = "txtTransactionCode";
             this.txtTransactionCode.Size = new System.Drawing.Size(199, 26);
             this.txtTransactionCode.TabIndex = 1;
+            this.txtTransactionCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransactionCode_KeyPress);
             // 
             // txtSalesId
             // 
@@ -220,6 +222,7 @@
             this.txtSalesId.Name = "txtSalesId";
             this.txtSalesId.Size = new System.Drawing.Size(199, 26);
             this.txtSalesId.TabIndex = 0;
+            this.txtSalesId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalesId_KeyPress);
             // 
             // label2
             // 
