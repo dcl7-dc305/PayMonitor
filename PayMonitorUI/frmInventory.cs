@@ -38,6 +38,8 @@ namespace PayMonitorUI
             "Other"
         };
 
+        bool isValidating = false;
+
 
         public frmInventory(string roletype = "", string lastname = "")
         {
@@ -67,6 +69,7 @@ namespace PayMonitorUI
         }
         private void submitButton_Click(object sender, EventArgs e)
         {
+            this.isValidating = true;
             if (!this.isFormValid())
             {
                 MessageBox.Show(this.messages["form invalid"]);
@@ -151,6 +154,12 @@ namespace PayMonitorUI
         }
         private bool isFormValid()
         {
+            this.validateId();
+            this.validateName();
+            this.validateCategory();
+            this.validatePrice();
+            this.validateQuantity();
+
             return !(
                 string.IsNullOrEmpty(this.txtProductID.Text) ||
                 string.IsNullOrEmpty(this.txtProductName.Text) ||
@@ -164,6 +173,8 @@ namespace PayMonitorUI
         {
             this.setFormValue();
             this.setEdit(false);
+            this.isValidating = false;
+            this.clearValidation();
         }
 
         private void clearSearch()
@@ -333,7 +344,7 @@ namespace PayMonitorUI
 
         private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -341,71 +352,79 @@ namespace PayMonitorUI
 
         private void txtProductID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        private void submitButton_Validating(object sender, CancelEventArgs e)
-        {
 
+        #region validation
+        private void clearValidation()
+        {
+            errorProvider.Clear();
         }
 
-        private void txtProductID_Validating(object sender, CancelEventArgs e)
+        private void validateId()
         {
-            this.nullValidation(this.txtProductID, "ID is required.", e);
-            //if (string.IsNullOrEmpty(this.txtProductID.Text))
-            //{
-            //    e.Cancel = true;
-            //    this.txtProductID.Focus();
-            //    errorProvider.SetError(this.txtProductID, "ID is required.");
-            //}
-            //else
-            //{
-            //    e.Cancel = false;
-            //    errorProvider.SetError(this.txtProductID, "");
-            //}
+            this.nullValidation(this.txtProductID, "ID is required.");
         }
 
-        private void nullValidation(TextBox box, string message, CancelEventArgs e)
+        private void validateName()
         {
-            if (string.IsNullOrEmpty(box.Text))
-            {
-                e.Cancel = true;
-                box.Focus();
-                errorProvider.SetError(box, message);
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(box, "");
-            }
+            this.nullValidation(this.txtProductName, "Name is required");
         }
 
-        private void txtProductName_Validating(object sender, CancelEventArgs e)
+        private void validateCategory()
         {
-            this.nullValidation(this.txtProductName, "Name is required.", e);
+            errorProvider.SetError(this.cmbCategory, this.cmbCategory.SelectedIndex < 0 ? "Category is required": "");
         }
 
-        private void cmbCategory_Validating(object sender, CancelEventArgs e)
+        private void validateQuantity()
         {
-            if (this.cmbCategory.SelectedIndex < 0)
-            {
-                e.Cancel = true;
-                this.cmbCategory.Focus();
-                errorProvider.SetError(this.cmbCategory, "Category is required.");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(this.cmbCategory, "");
-            }
+            this.nullValidation(this.txtQuantity, "Quantity is required");
+        }
+
+        private void validatePrice()
+        {
+            this.nullValidation(this.txtPrice, "Price is required");
+        }
+
+        private void nullValidation(TextBox box, string message)
+        {
+            if (!this.isValidating) return;
+            errorProvider.SetError(box, string.IsNullOrEmpty(box.Text) ? message : "");
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.reloadTable();
         }
+
+        private void txtProductID_TextChanged(object sender, EventArgs e)
+        {
+            this.validateId();
+        }
+
+        private void txtProductName_TextChanged(object sender, EventArgs e)
+        {
+            this.validateName();
+        }
+
+        private void cmbCategory_TextChanged(object sender, EventArgs e)
+        {
+            this.validateCategory();
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            this.validatePrice();
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            this.validateQuantity();
+        }
+        #endregion validation
     }
 }

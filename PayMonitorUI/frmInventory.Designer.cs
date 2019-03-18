@@ -84,8 +84,8 @@
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(134, 24);
             this.txtProductID.TabIndex = 45;
+            this.txtProductID.TextChanged += new System.EventHandler(this.txtProductID_TextChanged);
             this.txtProductID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductID_KeyPress);
-            this.txtProductID.Validating += new System.ComponentModel.CancelEventHandler(this.txtProductID_Validating);
             // 
             // lblProductName
             // 
@@ -114,7 +114,7 @@
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(134, 24);
             this.txtProductName.TabIndex = 48;
-            this.txtProductName.Validating += new System.ComponentModel.CancelEventHandler(this.txtProductName_Validating);
+            this.txtProductName.TextChanged += new System.EventHandler(this.txtProductName_TextChanged);
             // 
             // lblPrice
             // 
@@ -133,6 +133,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(134, 24);
             this.txtPrice.TabIndex = 50;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // lblQuantity
@@ -152,6 +153,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(134, 24);
             this.txtQuantity.TabIndex = 52;
+            this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // searchTerm
@@ -184,7 +186,6 @@
             this.submitButton.Text = "Add Product";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
-            this.submitButton.Validating += new System.ComponentModel.CancelEventHandler(this.submitButton_Validating);
             // 
             // btnClear
             // 
@@ -216,7 +217,7 @@
             this.cmbCategory.Size = new System.Drawing.Size(134, 21);
             this.cmbCategory.TabIndex = 61;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
-            this.cmbCategory.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCategory_Validating);
+            this.cmbCategory.TextChanged += new System.EventHandler(this.cmbCategory_TextChanged);
             // 
             // gridViewInventory
             // 
