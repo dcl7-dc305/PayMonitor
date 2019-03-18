@@ -18,7 +18,7 @@ namespace PayMonitorUI
     // form validation style - error provider
     // default form category to "other"
     // default search category to "all"
-    // implement isDuplicate
+    // [done] implement isDuplicate
 
     public partial class frmInventory : Form
     {
@@ -133,8 +133,22 @@ namespace PayMonitorUI
         #region helpers
         private bool isDuplicate(int id)
         {
-            // TODO
-            return false;
+            bool isDuplicate = false; 
+            SqlDataReader datareader;
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product_id", this.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@product_id", id);
+            try
+            {
+                this.sqlConnection.Open();
+                datareader = sqlCommand.ExecuteReader();
+                isDuplicate = datareader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.sqlConnection.Close();
+            return isDuplicate;
         }
         private bool isFormValid()
         {
