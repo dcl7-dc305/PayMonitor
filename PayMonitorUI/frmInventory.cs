@@ -194,7 +194,7 @@ namespace PayMonitorUI
             SqlDataReader datareader;
             DataTable datatable = new DataTable();
             string searchTerm = this.searchTerm.Text;
-            string searchCategory = this.searchCategory.SelectedIndex == 0 ? "" : this.getComboBoxSelecteditem(this.searchCategory);
+            string searchCategory = this.searchCategory.SelectedIndex == 0 ? null : this.getComboBoxSelecteditem(this.searchCategory);
             string qry = $"SELECT * FROM tbl_products WHERE " +
                 $"(product_id LIKE '%{searchTerm}%' OR " +
                 $"product_name LIKE '%{searchTerm}%' OR " +
@@ -213,11 +213,8 @@ namespace PayMonitorUI
             try
             {
                 datareader = sqlCommand.ExecuteReader();
-                if (datareader.HasRows)
-                {
-                    datatable.Load(datareader);
-                    gridViewInventory.DataSource = datatable;
-                }
+                datatable.Load(datareader);
+                gridViewInventory.DataSource = datatable;
                 datareader.Close();
                 this.sqlConnection.Close();
             }
