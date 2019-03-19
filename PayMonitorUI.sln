@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayMonitorUI", "PayMonitorU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayMonitorLibrary", "PayMonitorLibrary\PayMonitorLibrary.csproj", "{C50ACFE0-607B-4CFD-8409-0C955D498A31}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PayMonitor", "PayMonitor\PayMonitor.vdproj", "{33ABFEE5-D814-4884-9846-D4065036D1C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{C50ACFE0-607B-4CFD-8409-0C955D498A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50ACFE0-607B-4CFD-8409-0C955D498A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50ACFE0-607B-4CFD-8409-0C955D498A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33ABFEE5-D814-4884-9846-D4065036D1C2}.Debug|Any CPU.ActiveCfg = Debug
+		{33ABFEE5-D814-4884-9846-D4065036D1C2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
