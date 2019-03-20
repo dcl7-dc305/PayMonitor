@@ -24,6 +24,8 @@ namespace PayMonitorUI
             lblLast.Text = lastname;
             lblRoleType.Visible = false;
             lblLast.Visible = false;
+
+            btnUpdate.Enabled = false;
         }
 
         SqlCommand cmd;
@@ -232,31 +234,40 @@ namespace PayMonitorUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection(connstr);
-            cmd = new SqlCommand("UPDATE tbl_accounts SET account_id=@accountID, role_name=@rolename, username=@username, password=@password, firstname=@firstname, lastname=@lastname WHERE account_id=@accountID OR username=@username", conn);
-
-            cmd.Parameters.AddWithValue("@accountID", txtAccountID.Text);
-            cmd.Parameters.AddWithValue("@rolename", cmbAccountType.SelectedItem);
-            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-            cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
-            cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
-
-
-            try
+            if (txtAccountID.Text == "" || cmbAccountType.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || txtFirstname.Text == "" || txtLastname.Text == "")
             {
-                conn.Open();
-                if (cmd.ExecuteNonQuery() == 1)
+                MessageBox.Show("Form Incomplete. Please fill up form.");
+                btnUpdate.Enabled = false;
+            }
+            else
+            {
+                conn = new SqlConnection(connstr);
+                cmd = new SqlCommand("UPDATE tbl_accounts SET account_id=@accountID, role_name=@rolename, username=@username, password=@password, firstname=@firstname, lastname=@lastname WHERE account_id=@accountID OR username=@username", conn);
+
+                cmd.Parameters.AddWithValue("@accountID", txtAccountID.Text);
+                cmd.Parameters.AddWithValue("@rolename", cmbAccountType.SelectedItem);
+                cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
+                cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
+
+
+                try
                 {
-                    MessageBox.Show("Data Updated!");
-                    Load_ViewRegisteredData();
+                    conn.Open();
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Data Updated!");
+                        Load_ViewRegisteredData();
+                    }
+                    conn.Close();
                 }
-                conn.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -366,6 +377,8 @@ namespace PayMonitorUI
 
         private void grdViewAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnUpdate.Enabled = true;
+
             //Show Data from the database into the designated textboxes.
             DataGridViewRow row = grdViewAccounts.Rows[e.RowIndex];
 
