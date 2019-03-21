@@ -224,7 +224,10 @@
             this.gridViewInventory.BackgroundColor = System.Drawing.Color.White;
             this.gridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViewInventory.Location = new System.Drawing.Point(291, 62);
+            this.gridViewInventory.MultiSelect = false;
             this.gridViewInventory.Name = "gridViewInventory";
+            this.gridViewInventory.ReadOnly = true;
+            this.gridViewInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewInventory.Size = new System.Drawing.Size(521, 314);
             this.gridViewInventory.TabIndex = 60;
             this.gridViewInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdViewAccounts_CellClick);
