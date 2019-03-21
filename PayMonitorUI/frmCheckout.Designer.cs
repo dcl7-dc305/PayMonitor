@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCheckout));
             this.label1 = new System.Windows.Forms.Label();
             this.dgCheckout = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(23, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 31);
@@ -69,6 +71,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
             this.label2.Location = new System.Drawing.Point(582, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 31);
@@ -81,6 +84,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(573, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 31);
@@ -93,6 +97,7 @@
             this.lblTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPrice.ForeColor = System.Drawing.Color.White;
             this.lblTotalPrice.Location = new System.Drawing.Point(610, 94);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(160, 31);
@@ -116,6 +121,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
             this.label5.Location = new System.Drawing.Point(582, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(188, 31);
@@ -125,13 +131,17 @@
             // 
             // btnPay
             // 
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPay.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnPay.Location = new System.Drawing.Point(580, 289);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(195, 34);
             this.btnPay.TabIndex = 8;
             this.btnPay.Text = "PAY";
-            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // label6
@@ -139,7 +149,8 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(577, 183);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(574, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(22, 32);
             this.label6.TabIndex = 9;
@@ -151,6 +162,7 @@
             this.lblChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblChange.BackColor = System.Drawing.Color.Transparent;
             this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.ForeColor = System.Drawing.Color.White;
             this.lblChange.Location = new System.Drawing.Point(609, 183);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(160, 31);
@@ -160,13 +172,17 @@
             // 
             // btnCancelCheckout
             // 
+            this.btnCancelCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelCheckout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnCancelCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelCheckout.ForeColor = System.Drawing.Color.White;
             this.btnCancelCheckout.Location = new System.Drawing.Point(579, 329);
             this.btnCancelCheckout.Name = "btnCancelCheckout";
             this.btnCancelCheckout.Size = new System.Drawing.Size(195, 34);
             this.btnCancelCheckout.TabIndex = 11;
             this.btnCancelCheckout.Text = "Cancel Checkout";
-            this.btnCancelCheckout.UseVisualStyleBackColor = true;
+            this.btnCancelCheckout.UseVisualStyleBackColor = false;
             this.btnCancelCheckout.Click += new System.EventHandler(this.btnCancelCheckout_Click);
             // 
             // lblLastIdSales
@@ -206,6 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(64)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(796, 389);
             this.Controls.Add(this.lblRoleType);
             this.Controls.Add(this.lblLastName);
@@ -222,6 +239,7 @@
             this.Controls.Add(this.dgCheckout);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCheckout";

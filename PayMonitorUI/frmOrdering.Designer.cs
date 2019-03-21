@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdering));
             this.label1 = new System.Windows.Forms.Label();
             this.dgInventory = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,15 +56,18 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblRoleType = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShoppingCart)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 31);
@@ -88,6 +92,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(312, 268);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 31);
@@ -108,12 +113,15 @@
             // 
             // btnAddToCart
             // 
+            this.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnAddToCart.FlatAppearance.BorderSize = 0;
+            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToCart.Location = new System.Drawing.Point(13, 243);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(121, 44);
             this.btnAddToCart.TabIndex = 6;
             this.btnAddToCart.Text = "Add To Cart";
-            this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.UseVisualStyleBackColor = false;
             this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // groupBox1
@@ -133,6 +141,7 @@
             this.groupBox1.Controls.Add(this.btnAddToCart);
             this.groupBox1.Controls.Add(this.lblProdId);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(18, 268);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(279, 299);
@@ -142,12 +151,15 @@
             // 
             // btnReturnInventory
             // 
+            this.btnReturnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnReturnInventory.FlatAppearance.BorderSize = 0;
+            this.btnReturnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturnInventory.Location = new System.Drawing.Point(140, 243);
             this.btnReturnInventory.Name = "btnReturnInventory";
             this.btnReturnInventory.Size = new System.Drawing.Size(124, 44);
             this.btnReturnInventory.TabIndex = 20;
             this.btnReturnInventory.Text = "Return to Inventory";
-            this.btnReturnInventory.UseVisualStyleBackColor = true;
+            this.btnReturnInventory.UseVisualStyleBackColor = false;
             this.btnReturnInventory.Click += new System.EventHandler(this.btnReturnInventory_Click);
             // 
             // lblUnitPrice
@@ -269,30 +281,40 @@
             // 
             // btnCheckout
             // 
+            this.btnCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnCheckout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.Color.White;
             this.btnCheckout.Location = new System.Drawing.Point(545, 548);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(242, 44);
             this.btnCheckout.TabIndex = 16;
             this.btnCheckout.Text = "Checkout";
-            this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.UseVisualStyleBackColor = false;
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnBackMainMenu
             // 
+            this.btnBackMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnBackMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnBackMainMenu.FlatAppearance.BorderSize = 0;
+            this.btnBackMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackMainMenu.ForeColor = System.Drawing.Color.White;
             this.btnBackMainMenu.Location = new System.Drawing.Point(589, 17);
             this.btnBackMainMenu.Name = "btnBackMainMenu";
             this.btnBackMainMenu.Size = new System.Drawing.Size(199, 31);
             this.btnBackMainMenu.TabIndex = 17;
             this.btnBackMainMenu.Text = "<< Back to Main Menu";
-            this.btnBackMainMenu.UseVisualStyleBackColor = true;
+            this.btnBackMainMenu.UseVisualStyleBackColor = false;
             this.btnBackMainMenu.Click += new System.EventHandler(this.btnBackMainMenu_Click);
             // 
             // lblTotalCharge
             // 
             this.lblTotalCharge.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCharge.ForeColor = System.Drawing.Color.White;
             this.lblTotalCharge.Location = new System.Drawing.Point(650, 511);
             this.lblTotalCharge.Name = "lblTotalCharge";
             this.lblTotalCharge.Size = new System.Drawing.Size(133, 16);
@@ -305,6 +327,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(542, 511);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
@@ -325,7 +348,8 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(231, 26);
+            this.lblSearch.ForeColor = System.Drawing.Color.White;
+            this.lblSearch.Location = new System.Drawing.Point(231, 24);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(122, 18);
             this.lblSearch.TabIndex = 45;
@@ -334,7 +358,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(362, 23);
+            this.txtSearch.Location = new System.Drawing.Point(362, 21);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(194, 24);
             this.txtSearch.TabIndex = 44;
@@ -364,11 +388,25 @@
             this.lblLastName.Text = "LastName";
             this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(332, 511);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(167, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmOrdering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(64)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(800, 604);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblRoleType);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblSearch);
@@ -384,15 +422,16 @@
             this.Controls.Add(this.dgInventory);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmOrdering";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordering";
-            this.Load += new System.EventHandler(this.frmOrdering_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgShoppingCart)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +466,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblRoleType;
         private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

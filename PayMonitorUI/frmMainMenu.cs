@@ -77,7 +77,12 @@ namespace PayMonitorUI
             frmLogin.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblLastName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRoleType_Click(object sender, EventArgs e)
         {
 
         }

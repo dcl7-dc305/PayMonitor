@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSalesReport));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
@@ -52,14 +53,18 @@
             this.btnBackMainMenu = new System.Windows.Forms.Button();
             this.lblRoleType = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(23, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 31);
@@ -83,6 +88,7 @@
             this.groupBox1.Controls.Add(this.txtStaffLastName);
             this.groupBox1.Controls.Add(this.txtTransactionCode);
             this.groupBox1.Controls.Add(this.txtSalesId);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(29, 66);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(226, 394);
@@ -233,12 +239,17 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(29, 480);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(226, 35);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgSales
@@ -254,6 +265,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(351, 484);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 31);
@@ -265,6 +277,7 @@
             this.lblTotalSales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalSales.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSales.ForeColor = System.Drawing.Color.White;
             this.lblTotalSales.Location = new System.Drawing.Point(546, 484);
             this.lblTotalSales.Name = "lblTotalSales";
             this.lblTotalSales.Size = new System.Drawing.Size(165, 31);
@@ -274,13 +287,17 @@
             // 
             // btnBackMainMenu
             // 
+            this.btnBackMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnBackMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnBackMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackMainMenu.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnBackMainMenu.Location = new System.Drawing.Point(512, 18);
             this.btnBackMainMenu.Name = "btnBackMainMenu";
             this.btnBackMainMenu.Size = new System.Drawing.Size(199, 31);
             this.btnBackMainMenu.TabIndex = 18;
             this.btnBackMainMenu.Text = "<< Back to Main Menu";
-            this.btnBackMainMenu.UseVisualStyleBackColor = true;
+            this.btnBackMainMenu.UseVisualStyleBackColor = false;
             this.btnBackMainMenu.Click += new System.EventHandler(this.btnBackMainMenu_Click);
             // 
             // lblRoleType
@@ -307,11 +324,25 @@
             this.lblLastName.Text = "LastName";
             this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(276, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(64)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(745, 536);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblRoleType);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.btnBackMainMenu);
@@ -323,12 +354,14 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSalesReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Report";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +393,6 @@
         private System.Windows.Forms.Button btnBackMainMenu;
         private System.Windows.Forms.Label lblRoleType;
         private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

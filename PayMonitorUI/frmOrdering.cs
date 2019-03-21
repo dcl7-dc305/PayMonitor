@@ -243,11 +243,6 @@ namespace PayMonitorUI
             }
         }
 
-        private void frmOrdering_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
             conn = new SqlConnection(connstr);

@@ -390,6 +390,11 @@ namespace PayMonitorUI
             txtLastname.Text = row.Cells["lastname"].Value.ToString();
             txtAccountID.Enabled = false;
         }
+
+        private void lblManageAccount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

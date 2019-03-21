@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventory));
             this.lblProductID = new System.Windows.Forms.Label();
             this.lblManageInventory = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
@@ -52,15 +53,18 @@
             this.lblRoleType = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductID
             // 
             this.lblProductID.AutoSize = true;
             this.lblProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductID.ForeColor = System.Drawing.Color.White;
             this.lblProductID.Location = new System.Drawing.Point(15, 83);
             this.lblProductID.Name = "lblProductID";
             this.lblProductID.Size = new System.Drawing.Size(78, 18);
@@ -71,6 +75,7 @@
             // 
             this.lblManageInventory.AutoSize = true;
             this.lblManageInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageInventory.ForeColor = System.Drawing.Color.White;
             this.lblManageInventory.Location = new System.Drawing.Point(12, 26);
             this.lblManageInventory.Name = "lblManageInventory";
             this.lblManageInventory.Size = new System.Drawing.Size(270, 37);
@@ -91,6 +96,7 @@
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.ForeColor = System.Drawing.Color.White;
             this.lblProductName.Location = new System.Drawing.Point(15, 121);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(104, 18);
@@ -101,6 +107,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.Color.White;
             this.lblCategory.Location = new System.Drawing.Point(15, 154);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(68, 18);
@@ -120,6 +127,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.ForeColor = System.Drawing.Color.White;
             this.lblPrice.Location = new System.Drawing.Point(15, 187);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(42, 18);
@@ -140,6 +148,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.White;
             this.lblQuantity.Location = new System.Drawing.Point(14, 220);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(31, 18);
@@ -167,46 +176,62 @@
             // 
             // btnBack
             // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(678, 26);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(134, 26);
             this.btnBack.TabIndex = 55;
             this.btnBack.Text = "<< Back to Main Menu";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // submitButton
             // 
+            this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.submitButton.FlatAppearance.BorderSize = 0;
+            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(19, 318);
+            this.submitButton.ForeColor = System.Drawing.Color.White;
+            this.submitButton.Location = new System.Drawing.Point(19, 265);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(148, 26);
             this.submitButton.TabIndex = 56;
             this.submitButton.Text = "Add Product";
-            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(19, 350);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(19, 297);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(247, 26);
             this.btnClear.TabIndex = 58;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Maroon;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(173, 318);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(173, 265);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(93, 26);
             this.btnDelete.TabIndex = 59;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cmbCategory
@@ -223,7 +248,7 @@
             // 
             this.gridViewInventory.BackgroundColor = System.Drawing.Color.White;
             this.gridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewInventory.Location = new System.Drawing.Point(291, 62);
+            this.gridViewInventory.Location = new System.Drawing.Point(292, 77);
             this.gridViewInventory.MultiSelect = false;
             this.gridViewInventory.Name = "gridViewInventory";
             this.gridViewInventory.ReadOnly = true;
@@ -238,22 +263,27 @@
             // 
             // searchCategory
             // 
+            this.searchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCategory.FormattingEnabled = true;
             this.searchCategory.Location = new System.Drawing.Point(471, 26);
             this.searchCategory.Name = "searchCategory";
-            this.searchCategory.Size = new System.Drawing.Size(136, 21);
+            this.searchCategory.Size = new System.Drawing.Size(136, 24);
             this.searchCategory.TabIndex = 62;
             this.searchCategory.SelectedIndexChanged += new System.EventHandler(this.searchCategory_SelectedIndexChanged);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(193)))), ((int)(((byte)(66)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(613, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(59, 26);
             this.button1.TabIndex = 63;
             this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblRoleType
@@ -261,7 +291,7 @@
             this.lblRoleType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRoleType.BackColor = System.Drawing.Color.Transparent;
             this.lblRoleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblRoleType.Location = new System.Drawing.Point(16, 43);
+            this.lblRoleType.Location = new System.Drawing.Point(16, 51);
             this.lblRoleType.Name = "lblRoleType";
             this.lblRoleType.Size = new System.Drawing.Size(131, 17);
             this.lblRoleType.TabIndex = 65;
@@ -273,7 +303,7 @@
             this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblLastName.BackColor = System.Drawing.Color.Transparent;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblLastName.Location = new System.Drawing.Point(16, 26);
+            this.lblLastName.Location = new System.Drawing.Point(16, 34);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(131, 17);
             this.lblLastName.TabIndex = 64;
@@ -284,11 +314,24 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(17, 338);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 388);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(64)))), ((int)(((byte)(117)))));
+            this.ClientSize = new System.Drawing.Size(825, 405);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchCategory);
             this.Controls.Add(this.cmbCategory);
@@ -310,7 +353,9 @@
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.lblRoleType);
             this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
@@ -318,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblproductsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +394,6 @@
         private System.Windows.Forms.Label lblRoleType;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
