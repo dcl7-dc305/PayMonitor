@@ -284,7 +284,7 @@ namespace PayMonitorUI
                     // Add New Item to Cart
                     cmd = new SqlCommand("INSERT INTO tbl_cart (product_id, product_name, category, qty, price, total_price) VALUES (@product_id, @product_name, @category, @qty, @price, @total_price)", conn);
                     cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
-                    cmd.Parameters.AddWithValue("@product_name", lblProdName.Text);
+                    cmd.Parameters.AddWithValue("@product_name", lblProdNameVal.Text);
                     cmd.Parameters.AddWithValue("@category", lblCategory.Text);
                     cmd.Parameters.AddWithValue("@price", lblUnitPrice.Text);
                     cmd.Parameters.AddWithValue("@qty", txtQty.Text);
@@ -349,7 +349,7 @@ namespace PayMonitorUI
                     // if there are no records, insert new data to db.
                     cmd = new SqlCommand("INSERT INTO tbl_products (product_id, product_name, category, qty, price) VALUES (@product_id, @product_name, @category, @qty, @price)", conn);
                     cmd.Parameters.AddWithValue("@product_id", lblProdIdVal.Text);
-                    cmd.Parameters.AddWithValue("@product_name", lblProdName.Text);
+                    cmd.Parameters.AddWithValue("@product_name", lblProdNameVal.Text);
                     cmd.Parameters.AddWithValue("@category", lblCategory.Text);
                     cmd.Parameters.AddWithValue("@price", lblUnitPrice.Text);
                     cmd.Parameters.AddWithValue("@qty", txtQty.Text);
